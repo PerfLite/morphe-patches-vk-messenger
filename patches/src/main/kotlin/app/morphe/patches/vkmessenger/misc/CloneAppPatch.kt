@@ -9,7 +9,7 @@ import org.w3c.dom.Element
 
 private lateinit var packageNameOption: Option<String>
 
-private const val CLONE_APP_NAME = "VK Messenger Morphe"
+private const val CLONE_APP_NAME = "VK Messenger"
 
 /**
  * Package the clone ends up with. [tracerManifestPatch] has to hardcode the same value into the

@@ -7,6 +7,7 @@ import app.morphe.patcher.apk.ApkUtils
 import app.morphe.patcher.apk.ApkUtils.applyTo
 import app.morphe.patcher.dex.BytecodeMode
 import app.morphe.patches.vkmessenger.misc.cloneAppPatch
+import app.morphe.patches.vkmessenger.misc.iconColorPatch
 import app.morphe.patches.vkmessenger.misc.nativePatch
 import app.morphe.patches.vkmessenger.misc.pushNotificationsPatch
 import app.morphe.patches.vkmessenger.misc.securityPatch
@@ -92,7 +93,8 @@ fun main(args: Array<String>) {
             vpnDetectionPatch,
             tracerManifestPatch,
             nativePatch,
-            cloneAppPatch
+            cloneAppPatch,
+            iconColorPatch
         )
 
         println("Executing patches...")
