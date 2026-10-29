@@ -48,6 +48,9 @@ scratch/
 tmp/
 tmp_*/
 
+# Release artifacts
+dist/
+
 # Scratch & helper scripts
 *.py
 manifest_*
