@@ -133,6 +133,17 @@ val cloneAppPatch = resourcePatch(
                 }
             }
 
+            // Activities without their own affinity inherit the package name, so the app's built-in
+            // hijacking detector (compares every installed activity's taskAffinity with its own
+            // package name and reports apps not signed with VK certificates) flags the clone itself.
+            // An application-wide affinity keeps task grouping intact without matching that check.
+            for (i in 0 until applications.length) {
+                val app = applications.item(i) as? Element ?: continue
+                if (!app.hasAttribute("android:taskAffinity")) {
+                    app.setAttribute("android:taskAffinity", "$newPackageName.task")
+                }
+            }
+
             // Update content provider authorities to avoid installation collisions
             val providers = document.getElementsByTagName("provider").asSequence().map { it as Element }.toList()
             for (provider in providers) {
